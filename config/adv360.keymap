@@ -108,6 +108,41 @@
     
   };
 
+    macros {
+        ao_macro: ao_macro {
+            label = "ao_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp RALT>
+                , <&macro_tap &kp W>
+                , <&macro_release &kp RALT>
+                ;
+        };
+
+        ae_macro: ae_macro {
+            label = "ae_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp RALT>
+                , <&macro_tap &kp Q>
+                , <&macro_release &kp RALT>
+                ;
+        };
+
+        oe_macro: oe_macro {
+            label = "oe_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp RALT>
+                , <&macro_tap &kp P>
+                , <&macro_release &kp RALT>
+                ;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -115,8 +150,8 @@
         default_layer {
             bindings = <
    &kp ESC  &inverted1       &inverted2  &inverted3  &inverted4  &inverted5            &kp RALT                                                                 &mo 3   &inverted6    &inverted7    &inverted8    &inverted9    &inverted0  &kp MINUS
-   &kp TAB       &kp Q            &kp W       &kp E       &kp R       &kp T               &none                                                                 &none        &kp Y         &kp U         &kp I         &kp O         &kp P   &kp BSLH
-     &mo 1       &kp A            &kp S       &kp D       &kp F       &kp G               &none  &kp LCTRL  &kp LALT   &none   &none   &kp LGUI  &kp RCTRL      &none        &kp H         &kp J         &kp K         &kp L      &kp SEMI    &kp SQT
+   &kp TAB       &kp Q            &kp W       &kp E       &kp R       &kp T           &ao_macro                                                                 &oe_macro    &kp Y         &kp U         &kp I         &kp O         &kp P   &kp BSLH
+     &mo 1       &kp A            &kp S       &kp D       &kp F       &kp G           &ae_macro  &kp LCTRL  &kp LALT   &none   &none   &kp LGUI  &kp RCTRL      &none        &kp H         &kp J         &kp K         &kp L      &kp SEMI    &kp SQT
  &kp EQUAL       &kp Z            &kp X       &kp C       &kp V       &kp B               &none      &none  &kp HOME   &none   &none  &kp PG_UP      &none      &none        &kp N         &kp M     &kp COMMA       &kp DOT      &kp FSLH    &kp DEL
      &mo 2   &kp GRAVE  &kp PRINTSCREEN    &kp LEFT   &kp RIGHT                        &kp BSPC  &kp RSHFT   &kp END                  &kp PG_DN  &kp ENTER  &kp SPACE                     &kp UP      &kp DOWN      &kp LBKT      &kp RBKT      &mo 2
             >;
